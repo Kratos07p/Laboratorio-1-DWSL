@@ -1,63 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Introducción a Programación Web – PHP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a PHP</title>
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-light text-dark">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="index.html">
-        <span class="brand-dot"></span>Programación Web (PHP)
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <a class="navbar-brand fw-bold" href="#">Introduccion a PHP Básico</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="if.html">If</a></li>
-          <li class="nav-item"><a class="nav-link" href="switch.html">Switch</a></li>
-          <li class="nav-item"><a class="nav-link" href="while.html">While</a></li>
-          <li class="nav-item"><a class="nav-link" href="for.html">For</a></li>
-          <li class="nav-item"><a class="nav-link" href="foreach.html">Foreach</a></li>
-          <li class="nav-item"><a class="nav-link" href="recursos.html">Recursos</a></li>
-        </ul>
-      </div>
     </div>
   </nav>
 
-  <!-- Hero con imagen de fondo -->
-  <header class="hero bg-cover d-flex align-items-center">
-    <div class="container text-center text-white">
-      <h1 class="display-5 fw-bold">Introducción a Programación Web con <span class="text-warning">PHP</span></h1>
-      <p class="lead">Explora las estructuras de control: if, switch, while, for y foreach.</p>
-      <a href="if.html" class="btn btn-primary btn-lg mt-3">Comenzar</a>
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Aprendiendo PHP</h1>
+      <p class="lead">Estructuras básicas para introducirse al desarrollo web con PHP</p>
     </div>
   </header>
 
-  <!-- Contenido -->
-  <main class="container py-5">
-    <h2>Bienvenido</h2>
-    <p>En esta web aprenderás a usar las estructuras de control en PHP con ejemplos prácticos.</p>
-    <p>Usa el menú superior para navegar a cada tema.</p>
+  <!-- Secciones -->
+   <!-- Introducción -->
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="text-center mb-4">Introducción a PHP</h2>
+      <p class="lead text-justify">
+        <strong>PHP (Hypertext Preprocessor)</strong> es uno de los lenguajes de programación más utilizados en el desarrollo web del lado del servidor. 
+        Permite crear páginas dinámicas, procesar formularios, gestionar bases de datos y generar contenido en tiempo real.
+      </p>
+      <p class="text-justify">
+        Aprender PHP es un primer paso fundamental para quienes desean adentrarse en el mundo del desarrollo web, 
+        ya que combina sencillez, flexibilidad y una gran comunidad de soporte.
+      </p>
+      <p class="text-justify">
+        En esta página encontrarás una introducción a las 
+        <strong>estructuras básicas de control en PHP</strong>, que son la base para tomar decisiones y repetir acciones dentro de un programa:
+      </p>
+      <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>If</strong>: ejecutar código bajo una condición.</li>
+        <li class="list-group-item"><strong>Switch</strong>: seleccionar entre múltiples opciones.</li>
+        <li class="list-group-item"><strong>While</strong>: repetir acciones mientras se cumpla una condición.</li>
+        <li class="list-group-item"><strong>For</strong>: repetir acciones un número definido de veces.</li>
+        <li class="list-group-item"><strong>Foreach</strong>: recorrer arreglos y colecciones de datos.</li>
+      </ul>
+      <p class="text-justify">
+        Con estos conceptos podrás comenzar a escribir tus primeros programas en PHP 
+        y comprender cómo los sitios web toman decisiones y procesan información.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <main class="container my-5">
+    <section id="if" class="mb-5">
+      <h2>If</h2>
+      <p>Las sentencias if en PHP sirven para ejecutar un bloque de código de forma condicional, es decir, solo si se cumple una determinada expresión o 
+        condición que evalúa a verdadero (true), y esto permite al programa tomar decisiones, definir comportamientos distintos para diferentes escenarios y 
+        controlar el flujo de ejecución de la aplicación web. <br>Por Ejemplo:</p>
+      <pre><code>&lt;?php
+$numero = 10;
+if ($numero > 5) {
+  echo "El número es mayor que 5";
+}
+?&gt;</code></pre>
+      <div class="alert alert-info mt-3">
+        <strong>Explicación:</strong> En este ejemplo la condición <code>$numero > 5</code> 
+        se evalúa como verdadera porque <code>$numero</code> vale 10. 
+        Por lo tanto, se ejecuta el bloque de código dentro del <code>if</code> 
+        y se muestra en pantalla el texto <em>"El número es mayor que 5"</em>.
+      </div>
+    </section>
+
+    <section id="switch" class="mb-5">
+      <h2>Switch</h2>
+      <p>La instrucción switch sirve como una alternativa más limpia y organizada a múltiples declaraciones if-elseif-else para ejecutar diferentes bloques de 
+        código basándose en el valor de una única variable o expresión, esto especialmente útil cuando se necesita comparar la misma variable con muchos valores 
+        posibles y ejecutar una acción distinta para cada uno haciendo el código más legible y fácil de mantener. <br>Por ejemplo: </p>
+      <pre><code>&lt;?php
+$dia = "lunes";
+switch ($dia) {
+  case "lunes":
+    echo "Primer dia de semana";
+    break;
+  case "martes":
+    echo "Segundo dia de semana";
+    break;
+  case "Miercoles":
+    echo "Tercer dia de semana";
+    break;
+  case "Jueves":
+    echo "Cuarto dia de semana";
+    break;
+  case "viernes":
+    echo "Quinto dia de semana";
+    break;
+  case "sabado":
+    echo "Sexto dia de semana";
+    break;
+  case "domingo":
+    echo "Septimo y ultimo dia de semana";
+    break;
+  default:
+    echo "Día no válido";
+}
+?&gt;</code></pre>
+      <div class="alert alert-info mt-3">
+        <strong>Explicación:</strong> La variable <code>$dia</code> contiene la cadena <em>"lunes"</em>. 
+        El <code>switch</code> evalúa los casos y encuentra coincidencia con el primer caso (<code>"lunes"</code>), 
+        por lo que se ejecuta el código correspondiente y se imprime <em>"Primer dia de semana"</em>. 
+        Si <code>$dia</code> tuviera otro valor que no fuera un dia correcto, se ejecutaría el <code>default</code>.
+      </div>
+    </section>
+
+    <section id="while" class="mb-5">
+      <h2>While</h2>
+      <p>La instrucción while sirve para ejecutar repetidamente un bloque de código mientras una condición especificada sea verdadera, la condición se evalúa al 
+        principio de cada iteración, si es verdadera se ejecuta el código dentro de las llaves, si es falsa el bucle termina, esto es útil cuando no se sabe exactamente 
+        cuántas veces se repetirá el código pero sí se sabe bajo qué condiciones debe continuar o detenerse. </p>
+      <pre><code>&lt;?php
+$i = 1;
+while ($i <= 100) {
+  echo $i;
+  $i++;
+}
+?&gt;</code></pre>
+      <div class="alert alert-info mt-3">
+        <strong>Explicación:</strong> El bucle comienza con <code>$i = 1</code>. 
+        Mientras la condición <code>$i &lt;= 100</code> sea verdadera, se ejecuta el bloque, 
+        mostrando el valor de <code>$i</code> y luego incrementándolo con <code>$i++</code>. 
+        El ciclo imprime los números del 1 al 100 en pantalla.
+      </div>
+    </section>
+
+    <section id="for" class="mb-5">
+      <h2>For</h2>
+      <p>La instrucción for en PHP sirve para ejecutar un bloque de código un número específico de veces siendo ideal cuando se conoce de antemano la cantidad de iteraciones,
+        esto se compone de tres partes: la inicialización (que se ejecuta una vez al inicio), la condición (que se evalúa antes de cada iteración) y la expresión de actualización 
+        que se ejecuta al final de cada iteración), esto útil para recorrer estructuras de datos como vectores y matrices o simplemente para realizar una tarea repetidamente. </p>
+      <pre><code>&lt;?php
+for ($i = 1; $i <= 10; $i++) {
+  echo $i;
+}
+?&gt;</code></pre>
+      <div class="alert alert-info mt-3">
+        <strong>Explicación:</strong> Este bucle <code>for</code> inicia con <code>$i = 1</code>, 
+        y se repite mientras la condición <code>$i &lt;= 10</code> sea verdadera. 
+        En cada iteración, <code>$i</code> aumenta en 1 gracias a <code>$i++</code>. 
+        Como resultado, se imprimen en pantalla los números del 1 al 10.
+      </div>
+    </section>
+
+    <section id="foreach" class="mb-5">
+      <h2>Foreach</h2>
+      <p>La estructura foreach sirve para recorrer cada elemento de un array u objeto Traversable, ejecutando un bloque de código para cada elemento, su uso es ideal para 
+        interactuar con colecciones de datos ya que permite acceder de forma sencilla al valor (y opcionalmente a la clave) de cada elemento en cada iteración, haciendo el código 
+        más legible y limpio que los bucles for o while tradicionales. </p>
+      <pre><code>&lt;?php
+$colores = ["rojo", "verde", "azul"];
+foreach ($colores as $color) {
+  echo $color;
+}
+?&gt;</code></pre>
+      <div class="alert alert-info mt-3">
+        <strong>Explicación:</strong> El <code>foreach</code> recorre el arreglo <code>$colores</code>, 
+        tomando cada valor en la variable <code>$color</code> en cada iteración. 
+        En este ejemplo, se mostrarán en pantalla las palabras <em>"rojo"</em>, <em>"verde"</em> y <em>"azul"</em> 
+        de manera ordenada, una tras otra.
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer py-4">
-    <div class="container text-center">
-      © <span id="year"></span> Pablo G, Ixar H. Todos los derechos reservados.
-    </div>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>Pablo G, Ixar H - Introducción a PHP Estructuras. Todos los derechos Reservados &copy; 2025</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
