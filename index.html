@@ -46,7 +46,7 @@
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    /* ===== HERO (igual) ===== */
+    /* ===== HERO (sólo “Estructuras de Control en PHP”) ===== */
     .hero{
       position: relative;
       color:#fff;
@@ -68,21 +68,34 @@
       filter: blur(28px); pointer-events:none;
     }
     .hero h1{
-      font-weight: 800; font-size: clamp(2rem, 4vw, 2.625rem); line-height: 1.15; margin: 0;
+      font-weight: 800;
+      /* tamaño fluido entre 32px y 42px */
+      font-size: clamp(2rem, 4vw, 2.625rem);
+      line-height: 1.15;
+      margin: 0;
     }
-    .hero .grad{ background: linear-gradient(90deg,#fff, #ffd166 60%, #fff);
-      -webkit-background-clip: text; background-clip:text; color: transparent; }
+    .hero .grad{
+      background: linear-gradient(90deg,#fff, #ffd166 60%, #fff);
+      -webkit-background-clip: text; background-clip:text;
+      color: transparent;
+    }
     .hero-underline{ position:relative; display:inline-block; }
     .hero-underline::after{
       content:""; position:absolute; left:0; right:0; bottom:-10px; height:4px;
       background: linear-gradient(90deg,#ffd166,#a7f3d0,#93c5fd);
-      border-radius:999px; transform: scaleX(.2); transform-origin:left; transition: transform .6s ease;
+      border-radius:999px; transform: scaleX(.2); transform-origin:left;
+      transition: transform .6s ease;
     }
     .hero:hover .hero-underline::after{ transform: scaleX(1); }
-    .hero-kicker{ backdrop-filter: blur(6px); background: rgba(255,255,255,.18) !important; border:1px solid rgba(255,255,255,.28);}
+
+    .hero-kicker{
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,.18) !important;
+      border:1px solid rgba(255,255,255,.28);
+    }
     .hero-wave{ position:absolute; left:0; right:0; bottom:-1px; color:#fff; opacity:.8; }
 
-    /* ===== AJUSTES RESPONSIVE ===== */
+    /* ===== AJUSTES MÓVIL/TABLET ===== */
     @media (max-width: 576px){
       .hero{ padding: 2.1rem 1rem 2rem; }
       .hero .lead{ font-size: .98rem; }
@@ -93,7 +106,9 @@
       .hero{ padding: 3rem 1.25rem 2.5rem; }
       .hero .lead{ font-size: 1.05rem; }
     }
-    @media (hover: none){ .hero-underline::after{ transform: scaleX(1); } }
+    @media (hover: none){
+      .hero-underline::after{ transform: scaleX(1); }
+    }
     .hero + .container{ margin-top: 1.25rem !important; }
 
     /* ===== CONTENIDO ===== */
@@ -103,16 +118,20 @@
     .section-title{ display:flex; align-items:center; gap:.6rem; font-weight:700; margin-bottom:.5rem; }
     .section-title .badge{ background: var(--brand-500); }
 
+    /* Código + Copiar */
     pre{ position:relative; margin-bottom: 0; }
     .btn-copy{ position:absolute; right:.5rem; top:.5rem; z-index:2 }
 
+    /* TOC */
     .toc{ position: sticky; top: 6.5rem; }
     #tocNav .nav-link.active{ font-weight: 700; color: var(--brand-500); }
 
+    /* Back to top */
     #toTop{ position:fixed; right:1rem; bottom:1rem; display:none; border-radius:999px; }
 
     footer{ background:#0b0f14; color:#b8c1cc; }
 
+    /* Preferencias de movimiento */
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; transition: none !important; }
     }
@@ -144,6 +163,7 @@
   <!-- HERO -->
   <header id="inicio" class="hero mt-5">
     <div class="container text-center py-5 position-relative">
+      
       <h1 class="fw-bold hero-underline">Estructuras de Control en <span class="grad">PHP</span></h1>
       <p class="lead mb-0 opacity-75 mt-3">If · Switch · While · For · Foreach</p>
     </div>
@@ -205,14 +225,19 @@
         <section id="intro" class="section-soft p-4 p-md-5 mb-4">
           <h2 class="mb-3">Introducción a PHP</h2>
           <p class="lead">
-            <strong>PHP (Hypertext Preprocessor)</strong> es un lenguaje de propósito general enfocado al desarrollo del lado del servidor. Su fortaleza radica en generar contenido dinámico, procesar formularios y comunicarse con bases de datos para construir aplicaciones web completas.
+            <strong>PHP (Hypertext Preprocessor)</strong> es uno de los lenguajes de programación más utilizados en el desarrollo web del lado del servidor. 
+            Permite crear páginas dinámicas, procesar formularios, gestionar bases de datos y generar contenido en tiempo real.
           </p>
-          <p>
-            Las <strong>estructuras de control</strong> te permiten decidir qué instrucciones ejecutar y cuántas veces repetirlas. En la práctica, combinarlas correctamente es lo que transforma páginas estáticas en sistemas que reaccionan a datos y eventos del usuario.
-          </p>
-          <p>
-            A continuación se detallan las estructuras que ya has visto en esta página, con una explicación más profunda de su propósito, cuándo usarlas y buenas prácticas.
-          </p>
+          <p>Aprender PHP es un primer paso fundamental para quienes desean adentrarse en el mundo del desarrollo web, ya que combina sencillez, flexibilidad y una gran comunidad de soporte.</p>
+          <p>En esta página encontrarás una introducción a las <strong>estructuras básicas de control en PHP</strong>, que son la base para tomar decisiones y repetir acciones dentro de un programa:</p>
+          <ul class="list-group rounded-3 overflow-hidden">
+            <li class="list-group-item"><strong>If</strong>: ejecutar código bajo una condición.</li>
+            <li class="list-group-item"><strong>Switch</strong>: seleccionar entre múltiples opciones.</li>
+            <li class="list-group-item"><strong>While</strong>: repetir acciones mientras se cumpla una condición.</li>
+            <li class="list-group-item"><strong>For</strong>: repetir acciones un número definido de veces.</li>
+            <li class="list-group-item"><strong>Foreach</strong>: recorrer arreglos y colecciones de datos.</li>
+          </ul>
+          <p class="mt-3">Con estos conceptos podrás comenzar a escribir tus primeros programas en PHP y comprender cómo los sitios web toman decisiones y procesan información.</p>
         </section>
 
         <!-- IF -->
@@ -220,16 +245,11 @@
           <div class="card-body p-4 p-md-5">
             <div class="section-title"><span class="badge text-white">If</span><span>Condicional</span></div>
             <p>
-              La sentencia <strong>if</strong> sirven para ejecutar un bloque de código de forma condicional, es decir, solo si se cumple una determinada expresión o 
-        condición que evalúa a verdadero (true), y esto permite al programa tomar decisiones, definir comportamientos distintos para diferentes escenarios y 
-        controlar el flujo de ejecución de la aplicación web.
+              Las sentencias <strong>if</strong> en PHP sirven para ejecutar un bloque de código de forma condicional, es decir, solo si se cumple una determinada expresión o 
+              condición que evalúa a verdadero (<code>true</code>), y esto permite al programa tomar decisiones, definir comportamientos distintos para diferentes escenarios y 
+              controlar el flujo de ejecución de la aplicación web.
             </p>
-            <p class="mb-2">
-              <strong>Cuándo usarla:</strong> validación de entradas (edad mínima, campos requeridos), control de permisos, bifurcar lógica según estado (p.ej., autenticado/no autenticado).
-            </p>
-            <p class="mb-2">
-              <strong>Buenas prácticas:</strong> mantén las condiciones legibles (usa variables con nombres claros), evita anidar muchos <code>if</code> seguidos si una estructura <code>switch</code> o una tabla de decisiones lo simplifica, y extrae lógica compleja a funciones.
-            </p>
+            <p class="mb-2">Por ejemplo:</p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-if" aria-label="Copiar código If"><i class="bi bi-clipboard"></i></button>
               <pre><code id="code-if" class="language-php">&lt;?php
@@ -239,6 +259,10 @@ if ($numero &gt; 5) {
 }
 ?&gt;</code></pre>
             </div>
+            <div class="alert alert-info mt-3 mb-0">
+              <strong>Explicación:</strong> La condición <code>$numero &gt; 5</code> se evalúa como verdadera porque <code>$numero</code> vale 10. 
+              Por lo tanto, se ejecuta el bloque dentro del <code>if</code> y se muestra <em>"El número es mayor que 5"</em>.
+            </div>
           </div>
         </section>
 
@@ -247,14 +271,11 @@ if ($numero &gt; 5) {
           <div class="card-body p-4 p-md-5">
             <div class="section-title"><span class="badge text-white">Switch</span><span>Selección múltiple</span></div>
             <p>
-              <strong>switch</strong> compara el valor de una misma variable contra múltiples opciones predefinidas (<em>cases</em>). Es ideal cuando varias rutas dependen de un único dato (p. ej., tipo de usuario, opción de menú). Cada <code>case</code> termina usualmente con <code>break</code> para evitar que la ejecución “caiga” al siguiente caso.
+              La instrucción <strong>switch</strong> sirve como una alternativa más limpia y organizada a múltiples declaraciones <code>if-elseif-else</code> para ejecutar diferentes bloques de 
+              código basándose en el valor de una única variable o expresión. Es especialmente útil cuando se necesita comparar la misma variable con muchos valores 
+              posibles y ejecutar una acción distinta para cada uno, haciendo el código más legible y fácil de mantener.
             </p>
-            <p class="mb-2">
-              <strong>Cuándo usarlo:</strong> mapas de opciones claras (1, 2, 3...), constantes simbólicas, normalizar acciones según un estado.
-            </p>
-            <p class="mb-2">
-              <strong>Buenas prácticas:</strong> agrupa <code>case</code> que compartan lógica; usa <code>default</code> para manejar entradas no contempladas; procura que cada caso sea corto y delegue en funciones cuando haga falta.
-            </p>
+            <p class="mb-2">Por ejemplo:</p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-switch" aria-label="Copiar código Switch"><i class="bi bi-clipboard"></i></button>
               <pre><code id="code-switch" class="language-php">&lt;?php
@@ -266,10 +287,30 @@ switch ($dia) {
   case "martes":
     echo "Segundo dia de semana";
     break;
+  case "Miercoles":
+    echo "Tercer dia de semana";
+    break;
+  case "Jueves":
+    echo "Cuarto dia de semana";
+    break;
+  case "viernes":
+    echo "Quinto dia de semana";
+    break;
+  case "sabado":
+    echo "Sexto dia de semana";
+    break;
+  case "domingo":
+    echo "Septimo y ultimo dia de semana";
+    break;
   default:
     echo "Día no válido";
 }
 ?&gt;</code></pre>
+            </div>
+            <div class="alert alert-info mt-3 mb-0">
+              <strong>Explicación:</strong> La variable <code>$dia</code> contiene <em>"lunes"</em>. 
+              El <code>switch</code> encuentra coincidencia con ese caso y se imprime <em>"Primer dia de semana"</em>. 
+              Si <code>$dia</code> tuviera un valor no contemplado, se ejecutaría el <code>default</code>.
             </div>
           </div>
         </section>
@@ -279,13 +320,9 @@ switch ($dia) {
           <div class="card-body p-4 p-md-5">
             <div class="section-title"><span class="badge text-white">While</span><span>Bucle</span></div>
             <p>
-              <strong>while</strong> repite un bloque <em>mientras</em> una condición sea verdadera. La verificación ocurre <em>antes</em> de ejecutar el cuerpo; si la condición es falsa al inicio, el bucle no corre ninguna vez. Es útil cuando no conoces de antemano cuántas iteraciones harás y dependes de una condición que puede cambiar dentro del ciclo.
-            </p>
-            <p class="mb-2">
-              <strong>Cuándo usarlo:</strong> lectura de datos hasta fin de archivo, espera de un estado, intentos controlados con contador.
-            </p>
-            <p class="mb-2">
-              <strong>Buenas prácticas:</strong> garantiza que la condición cambie dentro del bucle para evitar bucles infinitos; limita el número de iteraciones cuando haya riesgos (timeouts, recursos).
+              La instrucción <strong>while</strong> sirve para ejecutar repetidamente un bloque de código mientras una condición especificada sea verdadera. 
+              La condición se evalúa al principio de cada iteración: si es verdadera, se ejecuta el bloque; si es falsa, el bucle termina. 
+              Es útil cuando no se sabe exactamente cuántas veces se repetirá el código pero sí bajo qué condición debe continuar o detenerse.
             </p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-while" aria-label="Copiar código While"><i class="bi bi-clipboard"></i></button>
@@ -297,11 +334,14 @@ while ($i &lt;= 100) {
 }
 ?&gt;</code></pre>
             </div>
+            <div class="alert alert-info mt-3 mb-0">
+              <strong>Explicación:</strong> El bucle comienza con <code>$i = 1</code>. 
+              Mientras <code>$i &lt;= 100</code> sea verdadero, se imprime <code>$i</code> y luego se incrementa con <code>$i++</code>. 
+              El ciclo muestra los números del 1 al 100.
+            </div>
 
+            <!-- Variante do...while ya existente en tu página -->
             <h5 class="mt-4">Variante: <code>do...while</code></h5>
-            <p>
-              <strong>do…while</strong> ejecuta primero el bloque y luego evalúa la condición; por eso se ejecuta <em>al menos una vez</em>. Útil para menús interactivos o procesos que deben ocurrir una vez y repetirse si el usuario lo decide.
-            </p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-do-while" aria-label="Copiar código do-while"><i class="bi bi-clipboard"></i></button>
               <pre><code id="code-do-while" class="language-php">&lt;?php
@@ -320,13 +360,9 @@ do {
           <div class="card-body p-4 p-md-5">
             <div class="section-title"><span class="badge text-white">For</span><span>Bucle</span></div>
             <p>
-              <strong>for</strong> se usa cuando conoces (o puedes calcular) el número de repeticiones. Integra en una sola línea la <em>inicialización</em> del contador, la <em>condición</em> de continuación y la <em>actualización</em> del contador, lo que lo hace compacto y fácil de leer para secuencias numéricas.
-            </p>
-            <p class="mb-2">
-              <strong>Cuándo usarlo:</strong> recorrer rangos numéricos, generar series, ejecutar un bloque un número concreto de veces.
-            </p>
-            <p class="mb-2">
-              <strong>Buenas prácticas:</strong> evita lógica pesada en la condición y en la actualización; si el cuerpo se vuelve complejo, extrae funciones para mantener claridad.
+              La instrucción <strong>for</strong> en PHP sirve para ejecutar un bloque de código un número específico de veces, siendo ideal cuando se conoce de antemano la cantidad de iteraciones.
+              Se compone de tres partes: la <em>inicialización</em> (se ejecuta una vez al inicio), la <em>condición</em> (se evalúa antes de cada iteración) y la <em>actualización</em> (se ejecuta al final de cada vuelta).
+              Es útil para recorrer estructuras como vectores/matrices o para realizar una tarea repetidamente.
             </p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-for" aria-label="Copiar código For"><i class="bi bi-clipboard"></i></button>
@@ -336,11 +372,13 @@ for ($i = 1; $i &lt;= 10; $i++) {
 }
 ?&gt;</code></pre>
             </div>
+            <div class="alert alert-info mt-3">
+              <strong>Explicación:</strong> El bucle inicia con <code>$i = 1</code> y se repite mientras <code>$i &lt;= 10</code>. 
+              En cada iteración, <code>$i</code> aumenta en 1 (<code>$i++</code>). Se imprimen los números del 1 al 10.
+            </div>
 
+            <!-- Control de flujo que ya tenías -->
             <h5 class="mt-4">Control de flujo</h5>
-            <p>
-              Dentro de bucles puedes alterar el curso con <code>continue</code> (salta a la siguiente iteración) y <code>break</code> (termina el bucle). Úsalos con criterio para no ocultar la intención del código.
-            </p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-for-ctrl" aria-label="Copiar código control de flujo"><i class="bi bi-clipboard"></i></button>
               <pre><code id="code-for-ctrl" class="language-php">&lt;?php
@@ -359,13 +397,9 @@ for ($i = 1; $i &lt;= 10; $i++) {
           <div class="card-body p-4 p-md-5">
             <div class="section-title"><span class="badge text-white">Foreach</span><span>Colecciones</span></div>
             <p>
-              <strong>foreach</strong> recorre de forma simple los elementos de un arreglo (y estructuras iterables). Es la opción más clara cuando te interesa cada elemento sin manejar índices manualmente. Permite obtener solo el valor o <em>clave y valor</em> en arreglos asociativos.
-            </p>
-            <p class="mb-2">
-              <strong>Cuándo usarlo:</strong> procesar listas de resultados, renderizar elementos en vistas, transformar colecciones.
-            </p>
-            <p class="mb-2">
-              <strong>Buenas prácticas:</strong> al modificar elementos usa <em>referencias</em> (<code>&amp;$var</code>) y recuerda <code>unset()</code> para liberar la referencia; evita mutar la colección mientras la recorres salvo que sepas exactamente el efecto.
+              La estructura <strong>foreach</strong> sirve para recorrer cada elemento de un array u objeto <em>Traversable</em>, ejecutando un bloque de código para cada elemento. 
+              Es ideal para interactuar con colecciones, pues permite acceder de forma sencilla al valor (y opcionalmente a la clave) de cada elemento en cada iteración, haciendo el código 
+              más legible y limpio que los bucles <code>for</code> o <code>while</code> tradicionales.
             </p>
             <div class="position-relative">
               <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-foreach" aria-label="Copiar código Foreach"><i class="bi bi-clipboard"></i></button>
@@ -374,4 +408,140 @@ $colores = ["rojo", "verde", "azul"];
 foreach ($colores as $color) {
   echo $color;
 }
-?&gt;</cod
+?&gt;</code></pre>
+            </div>
+            <div class="alert alert-info mt-3">
+              <strong>Explicación:</strong> El <code>foreach</code> recorre el arreglo <code>$colores</code>, tomando cada valor en la variable <code>$color</code> en cada iteración. 
+              Se mostrarán en pantalla <em>"rojo"</em>, <em>"verde"</em> y <em>"azul"</em> de manera ordenada.
+            </div>
+
+            <!-- Sub-secciones originales que ya existían -->
+            <h5 class="mt-4">Claves y valores</h5>
+            <div class="position-relative">
+              <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-foreach-kv" aria-label="Copiar código claves y valores"><i class="bi bi-clipboard"></i></button>
+              <pre><code id="code-foreach-kv" class="language-php">&lt;?php
+$edades = ["Ana" =&gt; 20, "Luis" =&gt; 22, "Marta" =&gt; 19];
+foreach ($edades as $nombre =&gt; $edad) {
+  echo $nombre . " tiene " . $edad . " años\n";
+}
+?&gt;</code></pre>
+            </div>
+
+            <h5 class="mt-4">Modificar por referencia</h5>
+            <div class="position-relative">
+              <button class="btn btn-sm btn-outline-secondary btn-copy" data-target="code-foreach-ref" aria-label="Copiar código por referencia"><i class="bi bi-clipboard"></i></button>
+              <pre><code id="code-foreach-ref" class="language-php">&lt;?php
+$nums = [1,2,3];
+foreach ($nums as &amp;$n) {
+  $n *= 2; // modifica el arreglo original
+}
+unset($n); // libera la referencia
+print_r($nums); // [2,4,6]
+?&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
+      <p class="mb-0 small">Pablo G, Ixar H — Introducción a PHP (© 2025)</p>
+      
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="toTop" class="btn btn-primary p-3" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js"></script>
+  <script>
+    try{ hljs.highlightAll(); }catch(e){}
+
+    // ===== Tema con persistencia + tema highlight.js =====
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const hljsTheme = document.getElementById('hljsTheme');
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (prefersDark ? 'dark' : 'light');
+      apply(initial);
+
+      btn.addEventListener('click', () => {
+        const next = (root.getAttribute('data-bs-theme') === 'dark') ? 'light' : 'dark';
+        apply(next);
+        localStorage.setItem('theme', next);
+      });
+
+      function apply(theme){
+        root.setAttribute('data-bs-theme', theme);
+        btn.innerHTML = theme === 'dark'
+          ? '<i class="bi bi-brightness-high"></i> Tema claro'
+          : '<i class="bi bi-moon-stars"></i> Tema oscuro';
+        if(hljsTheme){
+          hljsTheme.href = theme === 'dark'
+            ? 'https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark-dimmed.min.css'
+            : 'https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css';
+        }
+      }
+    })();
+
+    // ===== Copiar código =====
+    document.querySelectorAll('.btn-copy').forEach(btn=>{
+      btn.addEventListener('click', async()=>{
+        const id = btn.getAttribute('data-target');
+        const code = document.getElementById(id)?.innerText || '';
+        try{
+          await navigator.clipboard.writeText(code);
+          btn.innerHTML = '<i class="bi bi-clipboard-check"></i>';
+          btn.classList.replace('btn-outline-secondary','btn-success');
+          setTimeout(()=>{
+            btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+            btn.classList.replace('btn-success','btn-outline-secondary');
+          }, 1400);
+        }catch(e){ console.error(e); }
+      });
+    });
+
+    // ===== Cerrar acordeón móvil al hacer clic en un enlace =====
+    document.querySelectorAll('#tocMobile a').forEach(a=>{
+      a.addEventListener('click', ()=> {
+        const c = document.getElementById('c-toc');
+        if (c && c.classList.contains('show')) {
+          const acc = bootstrap.Collapse.getOrCreateInstance(c);
+          acc.hide();
+        }
+      });
+    });
+
+    // ===== Mostrar botón volver arriba =====
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', ()=>{ toTop.style.display = window.scrollY > 420 ? 'inline-flex' : 'none'; });
+    toTop.addEventListener('click', ()=>{ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    // ===== Resaltar enlace activo del TOC (desktop) =====
+    const tocLinks = document.querySelectorAll('#tocNav .nav-link');
+    const sections = [...tocLinks].map(l=> document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        const id = '#' + entry.target.id;
+        const link = document.querySelector(`#tocNav .nav-link[href="${id}"]`);
+        if(link){
+          if(entry.isIntersecting) link.classList.add('active');
+          else link.classList.remove('active');
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(s=> observer.observe(s));
+  </script>
+</body>
+</html>
